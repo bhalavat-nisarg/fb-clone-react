@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
+import signIn from './api/signIn';
 import './App.css';
+import { userRef } from './firebase';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    useEffect(() => {
+        function callFunc() {
+            userRef.push({
+                email: 'test1@gmail.com',
+                password: '123456',
+            });
+        }
+        // callFunc();
+    }, []);
+
+    const onSignIn = () => {
+        const result = signIn('demonew@gmail.com', 'password');
+        console.log(result);
+    };
+
+    return (
+        <div className="App">
+            <button onClick={() => onSignIn()}>Sign Up</button>
+        </div>
+    );
 }
 
 export default App;
