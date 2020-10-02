@@ -1,7 +1,11 @@
 import React, { useEffect } from 'react';
-import signIn from './api/signIn';
-import './App.css';
 import { userRef } from './firebase';
+
+import 'materialize-css/dist/css/materialize.min.css';
+import './App.css';
+
+import signIn from './api/signIn';
+import signUp from './api/signUp';
 
 function App() {
     useEffect(() => {
@@ -19,9 +23,15 @@ function App() {
         console.log(result);
     };
 
+    const onSignUp = () => {
+        const result = signUp('demonew@gmail.com', 'password', 'Dhaval');
+        console.log(result);
+    };
+
     return (
         <div className="App">
-            <button onClick={() => onSignIn()}>Sign Up</button>
+            <button onClick={() => onSignIn()}>Sign In</button>
+            <button onClick={() => onSignUp()}>Sign Up</button>
         </div>
     );
 }
