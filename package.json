@@ -9,7 +9,7 @@
         "firebase": "^8.9.0",
         "react": "^16.14.0",
         "react-dom": "^16.14.0",
-        "react-materialize": "^3.9.8",
+        "react-materialize": "^3.9.9",
         "react-scripts": "4.0.3"
     },
     "scripts": {
